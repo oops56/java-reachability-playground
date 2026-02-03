@@ -34,7 +34,7 @@ jobs:
       id: sonar-scan
       run: |
         mvn -B verify sonar:sonar \
-          -Dsonar.projectKey= rightpath_rightpath \
+          -Dsonar.projectKey=rightpath_rightpath \
           -Dsonar.organization=rightpath \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.token=$SONAR_TOKEN
@@ -42,7 +42,7 @@ jobs:
         # Download SonarCloud results
         sleep 30
         curl -u "$SONAR_TOKEN:" \
-          "https://sonarcloud.io/api/issues/search?componentKeys=testtraininggs_testtraininggs&resolved=false" \
+          "https://sonarcloud.io/api/issues/search?componentKeys=rightpath_rightpath&resolved=false" \
           -o sonar-results.json || echo '{"issues":[]}' > sonar-results.json
         
         echo "report-path=sonar-results.json" >> $GITHUB_OUTPUT
