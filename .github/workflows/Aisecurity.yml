@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use GitHub's runners for regular builds
+    runs-on: self-hosted  # Use GitHub's runners for regular builds
     name: Run unit tests and SAST scan on the source code 
     outputs:
       sonar-results: ${{ steps.sonar-scan.outputs.report-path }}
